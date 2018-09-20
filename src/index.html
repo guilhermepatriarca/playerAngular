@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+  <head>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+<nav class="navbar navbar-light bg-transparent justify-content-end">
+    <div class="nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+    </div>
+</nav>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+    </div>
+  </body>
+  <script src="js/angular.js"></script>
+</html>

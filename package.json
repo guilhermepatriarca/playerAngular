@@ -1,0 +1,29 @@
+{
+  "name": "aplication_song",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JAVASCPRIT",
+    "AngularJs"
+  ],
+  "author": "Guilherme",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "dependencies": {
+    "angular": "^1.7.2",
+    "bootstrap": "^4.1.3"
+  }
+}
