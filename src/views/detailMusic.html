@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-transparent justify-content-end" ng-controller="navBarController">
+    <div class="nav" ng-show="!navbarlogin">
+      <a class="nav-item nav-link" href="/login">Login</a>
+      <a class="nav-item nav-link" href="/register">Register</a>
+    </div>
+    <div class="nav" ng-show="navbarlogin">
+      <a class="p-2">{{userEmail}}</a>
+      <a href class="nav-item nav-link" ng-click="logout()">logout</a>
+    </div>
+  </nav>
+  <div class="container">
+      <h1 class="mb-5 text-center">Detail Music</h1>
+<div class="row">
+<div class="col-sm-12 col-md-6">
+        <img ng-src={{music.imgUrl}} class="rounded" alt="{{music.artist}}">
+        <h2 class="mb-5">{{music.artist}}</h2>
+        <h3>Music Title: {{music.title}}</h3>
+        <h4>Year: {{music.year}}</h4>
+</div>
+    <div class="col-sm-12 col-md-6">
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet turpis fringilla, venenatis eros a, pulvinar ante. In venenatis, lectus nec aliquet blandit, ex libero dignissim tellus, ac maximus erat ipsum ac ex. Integer id dolor sit amet nisi sodales sodales eu a leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras sed enim non enim dapibus maximus a non ante. Quisque suscipit quam a magna pretium posuere. Pellentesque eu pellentesque sapien. Quisque in dolor non ligula pretium euismod vehicula id purus. Fusce a tortor sollicitudin, sollicitudin est condimentum, pellentesque leo. Proin ut blandit sapien. Suspendisse diam dui, sagittis vitae tempus ac, laoreet et ex. Sed faucibus accumsan enim at condimentum.</p>
+   <p>Morbi eleifend quam dui, ac volutpat orci hendrerit ac. Curabitur sagittis aliquam ex sed vehicula. Nam placerat dictum urna vel pretium. Maecenas vehicula dolor eget ante molestie, sit amet consectetur dolor viverra. Cras vitae sem sollicitudin, convallis augue a, semper mauris. Duis vitae laoreet augue. Maecenas ullamcorper facilisis velit et blandit.
+    </p>
+      </div>
+</div>
+<a  href="/musics">Back</a>
+</div>
