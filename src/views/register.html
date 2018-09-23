@@ -1,0 +1,72 @@
+<nav class="navbar navbar-light bg-transparent justify-content-end" ng-controller="navBarController">
+    <div class="nav" ng-show="!navbarlogin">
+      <a class="nav-item nav-link" href="/login">Login</a>
+      <a class="nav-item nav-link" href="/register">Register</a>
+    </div>
+    <div class="nav" ng-show="navbarlogin">
+        <a class="p-2">{{userEmail}}</a>
+        <a class="nav-item nav-link" ng-click="logout()">logout</a>
+      </div>
+</nav>
+<section class="text-center">
+  <form name="registerForm" class="form-signin" novalidate>
+    <img class="mb-4" src="../assets/icon.png" alt="icon" height="100">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="inputName" name="userName" aria-describedby="nameHelp" placeholder="Your Name"
+        autocomplete="name" ng-model="user.name" ng-pattern="/[a-zA-Z]{3}/" required>
+        <div ng-show="registerForm.$submitted || registerForm.userName.$touched">
+            <small id="inputName" class=" form-text text-warning" ng-show="registerForm.userName.$error.required">Tell us your name.</small>
+          </div>
+          <small id="inputName" class="form-text text-warning" ng-show="registerForm.userName.$error.pattern">At least 3 characters</small>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" name="userEmail" id="inputEmail" aria-describedby="emailHelp"
+        placeholder="Your Email" autocomplete="email" ng-model="user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  required>
+        <div ng-show="registerForm.$submitted || registerForm.userEmail.$touched">
+            <small id="inputEmail" class=" form-text text-warning" ng-show="registerForm.userEmail.$error.required">Tell us your Email.</small>
+          </div>
+          <small id="inputName" class="form-text text-warning" ng-show="registerForm.userEmail.$error.pattern">Enter valid email</small>
+    </div>
+
+<div class="form-group">
+      <label for="inputPassword">Password</label>
+      <div class="input-group">
+          <input ng-attr-type="{{ showPassword === false ? 'password' : 'text' }}" class="form-control" id="inputPassword" name="password"
+    placeholder="Password" ng-model="user.password" required>
+  <div class="input-group-append">
+      <span class="input-group-text">
+        <i ng-click="showPassword =!showPassword" class="far" ng-class="showPassword === false ? 'fa-eye' : ' fa-eye-slash'"></i>
+      </span>
+      </div>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label for="inputConfirmPassword">Repeat Password</label>
+      <div class="input-group">
+          <input ng-attr-type="{{ showPassword === false ? 'password' : 'text' }}" class="form-control" id="inputConfirmPassword" name="inputConfirmPassword"
+    placeholder="Password" ng-model="user.confirmPassword" required>
+  <div class="input-group-append">
+      <span class="input-group-text">
+        <i ng-click="showPassword =!showPassword" class="far" ng-class="showPassword === false ? 'fa-eye' : ' fa-eye-slash'"></i>
+      </span>
+      </div>
+      </div>
+      <small id="inputConfirmPassword" class="form-text text-muted" ng-show="user.password != user.confirmPassword">Your passwords must match.</small>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" ng-click="create(user)" ng-disabled="registerForm.$invalid" type="submit">Register</button>
+
+    <div class="alert alert-success mt-3" ng-show="registerDone" role="alert">
+        Nice! Now you need to<a href="/login" class="alert-link"> login </a>to add your favorites musics.
+      </div>
+      <div class="alert alert-danger mt-3" ng-show="erroRegister" role="alert">
+          {{message}}
+        </div>
+  </form>
+  
+</section>
