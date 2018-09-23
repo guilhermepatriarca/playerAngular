@@ -20,7 +20,9 @@ gulp.task('sass', () => {
 gulp.task('js', () => {
 	return gulp
 		.src([
-			'node_modules/angular/angular.js'		
+			'node_modules/angular/angular.js',
+			'node_modules/angular-resource/angular-resource.js',
+			'node_modules/angular-route/angular-route.js',	
 		])
 		.pipe(plumber())
 		.pipe(gulp.dest('src/js'))
@@ -32,7 +34,8 @@ gulp.task('serve', ['sass'],  () => {
 		server: './src'
 	});
     gulp.watch(['src/scss/*.scss'], ['sass']);
-    gulp.watch(['src/js/*.js'], ['js']);
+	gulp.watch(['src/js/*.js'], ['js']);
+	gulp.watch(['src/app/*']);
 	gulp.watch('src/*.html').on('change', browserSync.reload);
 });
 
