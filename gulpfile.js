@@ -5,6 +5,15 @@ const sass = require('gulp-sass');
 const plumber = require('gulp-plumber');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
+const minifyCSS = require('gulp-minify-css');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const htmlreplace = require('gulp-html-replace');
+const minify = require('gulp-minify');
+const htmlmin = require('gulp-htmlmin');
+const babel = require('gulp-babel')
+const surge = require('gulp-surge')
 
 // compile sass to css
 gulp.task('sass', () => {
@@ -35,7 +44,7 @@ gulp.task('serve', ['sass'],  () => {
 	});
     gulp.watch(['src/scss/*.scss'], ['sass']);
 	gulp.watch(['src/js/*.js'], ['js']);
-	gulp.watch(['src/app/*']);
+	gulp.watch(['src/*']);
 	gulp.watch('src/*.html').on('change', browserSync.reload);
 });
 
@@ -46,4 +55,17 @@ gulp.task('development', () => {
 		.pipe(gulp.dest('dist'));
 });
 
+
+/**
+ * Images Minify
+ */
+gulp.task('minifyImages', function () {
+	gulp.src('src/assets/*')
+		.pipe(plumber())
+		.pipe(imagemin())
+		.pipe(gulp.dest('dist/assets'))
+});
+
 gulp.task('dev', ['js', 'serve', 'development']);
+gulp.task('prod', ['deploy']);
+
