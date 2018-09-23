@@ -47,9 +47,7 @@ let objs;
             let find = $filter('filter')(objs, {id: item.songId}, true);
             try {
             find[0].favorite = true;
-            }catch{
-      
-            }
+            }catch (e){}
           }
           $scope.musics =objs;
         }).catch((response)=>{
