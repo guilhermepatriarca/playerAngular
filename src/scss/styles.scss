@@ -1,12 +1,34 @@
 $body-bg:#333;
 $body-color:#ecf0f1;
+$primary:#e67e22;
 
-$navbar-light-color:#ecf0f1;
-$navbar-light-hover-color:#bdc3c7;
-$navbar-light-active-color:#bdc3c7;
+$nav-tabs-link-active-color: red;
+$nav-tabs-link-active: green;
+$border-radius: .75rem;
+$btn-padding-y: .5rem;
+$btn-padding-x:  .25rem; 
 
 .bg-light{
     background-color: red;
+}
+a{
+    z-index: 1000;
+}
+a:hover{
+    color:grey !important;
+}
+
+.nav-item{
+    color:whitesmoke;
+}
+.card {
+    border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+.form-signin {
+    width: 100%;
+    max-width: 440px;
+    padding: 15px;
+    margin: auto;
 }
 
 // Bootstrap and its default variables
