@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-transparent justify-content-end" ng-controller="navBarController">
+  <div class="nav" ng-show="!navbarlogin">
+    <a class="nav-item nav-link" href="/login">Login</a>
+    <a class="nav-item nav-link" href="/register">Register</a>
+  </div>
+  <div class="nav" ng-show="navbarlogin">
+    <a class="p-2">{{userEmail}}</a>
+    <a href class="nav-item nav-link" ng-click="logout()">logout</a>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="card bg-transparent text-white col-6 col-sm-6 col-md-4 col-lg-3 p-3" ng-repeat="music in musics">
+      <img class="card-img" ng-src={{music.imgUrl}} alt="{{music.title}}" />
+      <div class="card-img-overlay">
+        <h5 class="card-title">{{music.title}}</h5>
+        <p class="card-text">{{music.artist}}</p>
+      </div>
+      <div class="row">
+      <div class=" text-center p-4" ng-class="userLogin === true ? 'col-6'  :'col-12'">
+        <a class="text-white"  href="/music/{{music.id}}"><i class="fas fa-info"></i></a>
+      </div>
+      <div class="col-6 text-center p-4">
+        <a href ng-class="music.favorite === true ? 'text-success'  :'text-danger'" ng-show="userLogin" ng-click="addToFavorites(music.id)"><i ng-class="music.favorite === true ? 'fas fa-star'  :'far fa-star'"></i></a>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>
