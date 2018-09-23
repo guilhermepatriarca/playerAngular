@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-transparent justify-content-end" ng-controller="navBarController">
+    <div class="nav" ng-show="!navbarlogin">
+      <a class="nav-item nav-link" href="/login">Login</a>
+      <a class="nav-item nav-link" href="/register">Register</a>
+    </div>
+    <div class="nav" ng-show="navbarlogin">
+        <a class="p-2">{{userEmail}}</a>
+        <a class="nav-item nav-link" ng-click="logout()">Register</a>
+      </div>
+</nav>
+
+<section class="text-center">
+  <form name="loginForm" class="form-signin" novalidate>
+    <img class="mb-4" src="../assets/icon.png" alt="icon" height="100">
+    <h1 class="h3 mb-5 font-weight-normal">Login</h1>
+
+    <div class="form-group mb-5">
+      <input type="email" class="form-control" name="userEmail" id="inputEmail" aria-describedby="emailHelp"
+        placeholder="Email" autocomplete="email" ng-model="user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+        required>
+      <div ng-show="loginForm.$submitted || loginForm.userEmail.$touched">
+        <small id="inputEmail" class=" form-text text-warning" ng-show="loginForm.userEmail.$error.required">Insert your Email.</small>
+      </div>
+      <small id="inputName" class="form-text text-warning" ng-show="loginForm.userEmail.$error.pattern">Enter valid email</small>
+    </div>
+    <div class="input-group mb-5">
+              <input ng-attr-type="{{ showPassword === false ? 'password' : 'text' }}" class="form-control" id="inputPassword" name="password"
+        placeholder="Password" ng-model="user.password" required>
+      <div class="input-group-append">
+          <span class="input-group-text">
+            <i ng-click="showPassword =!showPassword" class="far" ng-class="showPassword === false ? 'fa-eye' : ' fa-eye-slash'"></i>
+          </span>
+          </div>
+          </div>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="create(user)" ng-disabled="loginForm.$invalid" type="submit">Login</button>
+            <div ng-show="alertError" class="alert alert-danger alertError mt-3" role="alert">
+                {{messageError}}
+              </div>
+          </form>
+
+  <button type="button" class="btn btn-link btn-lg mt-5" ng-click="sendToMusic()">Try without login</button>
+</section>
