@@ -1,23 +1,25 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="playerApp">
   <head>
+        <base href="/" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/sweetalert.css">
   </head>
   <body>
-<nav class="navbar navbar-light bg-transparent justify-content-end">
-    <div class="nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-    </div>
-</nav>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-    </div>
-  </body>
+<ng-view></ng-view>
+
   <script src="js/angular.js"></script>
+  <script src="js/angular-resource.js"></script>
+  <script src="js/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/listController.js"></script>
+  <script src="controllers/resgisterController.js"></script>
+  <script src="controllers/loginController.js"></script>
+  <script src="controllers/musicDetails.js"></script>
+  <script src="controllers/navbarController.js"></script>
+  <script src="services/musicData.js"></script>
+  
+</body>
 </html>
