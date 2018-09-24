@@ -41,7 +41,7 @@ let objs;
         objs = data;
         for (const iterator of objs) {
           iterator.favorite = false;
-        }
+        }      
         musicData.getFavorite().then((data)=>{
           for (const item of data.data) {
             let find = $filter('filter')(objs, {id: item.songId}, true);
@@ -53,9 +53,11 @@ let objs;
         }).catch((response)=>{
           $scope.musics =objs;
         })
-      
       })
       .catch((response) => {
         console.log(`Error: ${response}`)
       })
+
+
   });
+

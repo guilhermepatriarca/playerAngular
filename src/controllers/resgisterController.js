@@ -8,7 +8,7 @@ playerApp.controller('RegisterController',
     $scope.erroRegister = false;
 
     $scope.create = user =>{
-        musicData.registerUser()
+        musicData.registerUser(user)
         .$promise.then((data)=>{
             $scope.registerDone = true;
         })

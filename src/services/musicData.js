@@ -38,7 +38,7 @@ playerApp.factory('musicData', ($resource, $http) => {
                 }
             })
         },
-        getFavorite: (musicId) => {
+        getFavorite: () => {
             return $http.get('https://songs-api-ubiwhere.now.sh/api/user-favorites/', {
                 headers: {
                     'Authorization': `Bearer ${token}`
